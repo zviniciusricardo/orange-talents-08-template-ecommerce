@@ -1,9 +1,6 @@
 package br.com.zupacademy.vinicius.mercadolivre.categoria;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Categoria {
@@ -14,14 +11,20 @@ public class Categoria {
 
     private String nome;
 
-    private Long parentId;
+    @ManyToOne
+    private Categoria categoriaMae;
 
-    public Categoria(String nome) {
+    public Categoria(String nome, Categoria categoriaMae) {
         this.nome = nome;
+        this.categoriaMae = categoriaMae;
     }
 
     @Deprecated
     public Categoria() {
+    }
+
+    public Categoria getCategoriaMae() {
+        return categoriaMae;
     }
 
     public Long getId() {
@@ -30,9 +33,5 @@ public class Categoria {
 
     public String getNome() {
         return nome;
-    }
-
-    public Long getParentId() {
-        return parentId;
     }
 }

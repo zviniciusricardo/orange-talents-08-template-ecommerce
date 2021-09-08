@@ -4,11 +4,12 @@ public class CategoriaDto {
 
     private Long id;
     private String nome;
-    private Long parent;
+    private Categoria categoriaMae;
 
     public CategoriaDto(Categoria categoria) {
         this.id = categoria.getId();
         this.nome = categoria.getNome();
+        this.categoriaMae = categoria.getCategoriaMae();
     }
 
     public Long getId() {
@@ -19,7 +20,7 @@ public class CategoriaDto {
         return nome;
     }
 
-    public Long getParent() {
-        return parent;
+    public Categoria getCategoriaMae() {
+        return categoriaMae;
     }
 }
