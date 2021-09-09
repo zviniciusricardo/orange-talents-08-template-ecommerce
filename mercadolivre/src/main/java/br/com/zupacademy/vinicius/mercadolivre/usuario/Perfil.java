@@ -2,6 +2,11 @@ package br.com.zupacademy.vinicius.mercadolivre.usuario;
 
 import org.springframework.security.core.GrantedAuthority;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 @Entity
 public class Perfil implements GrantedAuthority {
 
@@ -10,4 +15,9 @@ public class Perfil implements GrantedAuthority {
     private Long id;
 
     private String nome;
+
+    @Override
+    public String getAuthority() {
+        return nome;
+    }
 }
