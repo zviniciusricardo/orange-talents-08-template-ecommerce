@@ -1,4 +1,4 @@
-package br.com.zupacademy.vinicius.mercadolivre.produto.opiniao_produto;
+package br.com.zupacademy.vinicius.mercadolivre.produto.opiniao_usuario_produto;
 
 public class OpiniaoDto {
 

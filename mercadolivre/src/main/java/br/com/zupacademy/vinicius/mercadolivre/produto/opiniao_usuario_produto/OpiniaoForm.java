@@ -1,4 +1,4 @@
-package br.com.zupacademy.vinicius.mercadolivre.produto.opiniao_produto;
+package br.com.zupacademy.vinicius.mercadolivre.produto.opiniao_usuario_produto;
 
 import br.com.zupacademy.vinicius.mercadolivre.produto.Produto;
 import br.com.zupacademy.vinicius.mercadolivre.produto.ProdutoRepository;

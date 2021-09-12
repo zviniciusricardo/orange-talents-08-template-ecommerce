@@ -2,7 +2,8 @@ package br.com.zupacademy.vinicius.mercadolivre.produto;
 
 import br.com.zupacademy.vinicius.mercadolivre.produto.caracteristica_produto.CaracteristicaDto;
 import br.com.zupacademy.vinicius.mercadolivre.produto.imagem_produto.ImagemDto;
-import br.com.zupacademy.vinicius.mercadolivre.produto.opiniao_produto.OpiniaoDto;
+import br.com.zupacademy.vinicius.mercadolivre.produto.opiniao_usuario_produto.OpiniaoDto;
+import br.com.zupacademy.vinicius.mercadolivre.produto.pergunta_usuario_produto.PerguntaDto;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class ProdutoDto {
     private List<CaracteristicaDto> caracteristicas = new ArrayList<>();
     private List<ImagemDto> imagens = new ArrayList<>();
     private List<OpiniaoDto> opinioes = new ArrayList<>();
-
+    private List<PerguntaDto> perguntas = new ArrayList<>();
 
     public ProdutoDto(Produto produto) {
         this.id = produto.getId();
@@ -35,7 +36,16 @@ public class ProdutoDto {
         setCaracteristicaProduto(produto);
         setImagensProduto(produto);
         setOpiniaoProduto(produto);
+        preencherPerguntas(produto);
+    }
 
+    private void preencherPerguntas(Produto produto) {
+        if ((produto.getPerguntas() != null) && (produto.getPerguntas().size() > 0)) {
+            produto.getPerguntas().forEach(pergunta -> {
+                PerguntaDto perguntaDTO = new PerguntaDto(pergunta);
+                this.perguntas.add(perguntaDTO);
+            });
+        }
     }
 
     private void setImagensProduto(Produto produto) {
@@ -64,7 +74,6 @@ public class ProdutoDto {
             });
         }
     }
-
 
     public Long getId() {
         return id;
@@ -108,5 +117,9 @@ public class ProdutoDto {
 
     public List<OpiniaoDto> getOpinioes() {
         return opinioes;
+    }
+
+    public List<PerguntaDto> getPerguntas() {
+        return perguntas;
     }
 }

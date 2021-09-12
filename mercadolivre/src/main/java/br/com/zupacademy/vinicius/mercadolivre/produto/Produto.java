@@ -3,7 +3,8 @@ package br.com.zupacademy.vinicius.mercadolivre.produto;
 import br.com.zupacademy.vinicius.mercadolivre.categoria.Categoria;
 import br.com.zupacademy.vinicius.mercadolivre.produto.caracteristica_produto.Caracteristica;
 import br.com.zupacademy.vinicius.mercadolivre.produto.imagem_produto.Imagem;
-import br.com.zupacademy.vinicius.mercadolivre.produto.opiniao_produto.Opiniao;
+import br.com.zupacademy.vinicius.mercadolivre.produto.opiniao_usuario_produto.Opiniao;
+import br.com.zupacademy.vinicius.mercadolivre.produto.pergunta_usuario_produto.Pergunta;
 import br.com.zupacademy.vinicius.mercadolivre.usuario.Usuario;
 import org.hibernate.validator.constraints.Length;
 
@@ -57,6 +58,9 @@ public class Produto {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Opiniao> opinioes;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pergunta> perguntas;
 
 
     @Deprecated
@@ -116,7 +120,11 @@ public class Produto {
         return imagens;
     }
 
-    public void adicionarImagens(List<Imagem> imagens) {
+    public List<Pergunta> getPerguntas() {
+        return perguntas;
+    }
+
+    public void setImagensProduto(List<Imagem> imagens) {
         imagens.forEach(imagem -> {
             if (!this.imagens.contains(imagem)) {
                 this.imagens.add(imagem);
@@ -124,12 +132,16 @@ public class Produto {
         });
     }
 
-    public void adicionarOpiniao(Opiniao opiniao) {
+    public void setOpiniaoProduto(Opiniao opiniao) {
         this.opinioes.add(opiniao);
     }
 
     public List<Opiniao> getOpinioes() {
         return opinioes;
+    }
+
+    public void setPerguntaProduto(Pergunta opiniao) {
+        this.perguntas.add(opiniao);
     }
 }
 
