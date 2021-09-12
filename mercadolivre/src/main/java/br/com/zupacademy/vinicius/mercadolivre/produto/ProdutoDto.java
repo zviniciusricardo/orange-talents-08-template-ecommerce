@@ -1,6 +1,7 @@
 package br.com.zupacademy.vinicius.mercadolivre.produto;
 
 import br.com.zupacademy.vinicius.mercadolivre.produto.caracteristica_produto.CaracteristicaDto;
+import br.com.zupacademy.vinicius.mercadolivre.produto.imagem_produto.ImagemDto;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class ProdutoDto {
     private Long categoriaId;
     private String donoProduto;
     private List<CaracteristicaDto> caracteristicas = new ArrayList<>();
+    private List<ImagemDto> imagens = new ArrayList<>();
 
     public ProdutoDto(Produto produto) {
         this.id = produto.getId();
@@ -28,6 +30,16 @@ public class ProdutoDto {
         this.categoriaId = produto.getCategoria().getId();
         this.donoProduto = produto.getUsuario().getLogin();
         preencherCaracteristicas(produto);
+        preencherImagens(produto);
+    }
+
+    private void preencherImagens(Produto produto) {
+        if ((produto.getImagens() != null) && (produto.getImagens().size() > 0)) {
+            produto.getImagens().forEach(imagem -> {
+                ImagemDto imagemDto = new ImagemDto(imagem.getEndereco());
+                this.imagens.add(imagemDto);
+            });
+        }
     }
 
     private void preencherCaracteristicas(Produto produto) {
@@ -74,5 +86,9 @@ public class ProdutoDto {
 
     public List<CaracteristicaDto> getCaracteristicas() {
         return caracteristicas;
+    }
+
+    public List<ImagemDto> getImagens() {
+        return imagens;
     }
 }

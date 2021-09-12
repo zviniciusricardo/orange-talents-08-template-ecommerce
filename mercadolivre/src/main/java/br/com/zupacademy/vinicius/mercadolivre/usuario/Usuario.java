@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import static br.com.zupacademy.vinicius.mercadolivre.commons.util.VerificadorDataCriacao.checaData;
 
@@ -90,5 +91,29 @@ public class Usuario implements UserDetails {
 
     public LocalDateTime getDataCriacao() {
         return dataCriacao;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Usuario)) return false;
+        Usuario usuario = (Usuario) o;
+        return getId().equals(usuario.getId()) && Objects.equals(getLogin(), usuario.getLogin()) && Objects.equals(getSenha(), usuario.getSenha()) && Objects.equals(getDataCriacao(), usuario.getDataCriacao()) && Objects.equals(perfis, usuario.perfis);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getLogin(), getSenha(), getDataCriacao(), perfis);
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", senha='" + senha + '\'' +
+                ", dataCriacao=" + dataCriacao +
+                ", perfis=" + perfis +
+                '}';
     }
 }

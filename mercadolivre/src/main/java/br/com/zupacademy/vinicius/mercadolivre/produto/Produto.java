@@ -2,6 +2,7 @@ package br.com.zupacademy.vinicius.mercadolivre.produto;
 
 import br.com.zupacademy.vinicius.mercadolivre.categoria.Categoria;
 import br.com.zupacademy.vinicius.mercadolivre.produto.caracteristica_produto.Caracteristica;
+import br.com.zupacademy.vinicius.mercadolivre.produto.imagem_produto.Imagem;
 import br.com.zupacademy.vinicius.mercadolivre.usuario.Usuario;
 import org.hibernate.validator.constraints.Length;
 
@@ -49,6 +50,9 @@ public class Produto {
     @NotNull
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Caracteristica> caracteristicas;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Imagem> imagens;
 
 
     @Deprecated
@@ -100,6 +104,18 @@ public class Produto {
 
     public List<Caracteristica> getCaracteristicas() {
         return caracteristicas;
+    }
+
+    public List<Imagem> getImagens() {
+        return imagens;
+    }
+
+    public void adicionarImagens(List<Imagem> imagens) {
+        imagens.forEach(imagem -> {
+            if (!this.imagens.contains(imagem)) {
+                this.imagens.add(imagem);
+            }
+        });
     }
 
 }
