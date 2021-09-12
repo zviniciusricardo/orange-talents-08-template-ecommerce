@@ -3,6 +3,8 @@ package br.com.zupacademy.vinicius.mercadolivre.produto;
 import br.com.zupacademy.vinicius.mercadolivre.categoria.CategoriaRepository;
 import br.com.zupacademy.vinicius.mercadolivre.produto.imagem_produto.Imagem;
 import br.com.zupacademy.vinicius.mercadolivre.produto.imagem_produto.ImagemForm;
+import br.com.zupacademy.vinicius.mercadolivre.produto.opiniao_produto.Opiniao;
+import br.com.zupacademy.vinicius.mercadolivre.produto.opiniao_produto.OpiniaoForm;
 import br.com.zupacademy.vinicius.mercadolivre.usuario.Usuario;
 import br.com.zupacademy.vinicius.mercadolivre.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/produtos")
@@ -44,6 +45,18 @@ public class ProdutoController {
         List<Imagem> imagens = form.toModel(id, produtoRepository, usuario);
         Produto produto = produtoRepository.findById(id).get();
         produto.adicionarImagens(imagens);
+        this.produtoRepository.save(produto);
+        return new ProdutoDto(produto);
+    }
+
+    @PostMapping
+    @RequestMapping("/{id}/opinioes")
+    @ResponseStatus(HttpStatus.OK)
+    public ProdutoDto adicionaOpiniao(@PathVariable("id") Long id, @RequestBody @Valid OpiniaoForm form,
+                                      @AuthenticationPrincipal Usuario usuario) {
+        Opiniao opiniao = form.toModel(id, produtoRepository, usuario);
+        Produto produto = produtoRepository.findById(id).get();
+        produto.adicionarOpiniao(opiniao);
         this.produtoRepository.save(produto);
         return new ProdutoDto(produto);
     }
