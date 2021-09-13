@@ -71,4 +71,12 @@ public class ProdutoController {
         EmailSender.sendMail(produto.getUsuario(), usuario);
         return ResponseEntity.ok().body(new ProdutoDto(produto));
     }
+
+    @GetMapping
+    @RequestMapping("/{id}/info")
+    public ResponseEntity<?> detalhar(@PathVariable("id") Long id) {
+        Produto produto = this.produtoRepository.findById(id).orElseThrow(() ->
+                new IllegalArgumentException("Não existe um produto com esse id."));
+        return ResponseEntity.ok().body(new DetalhesProdutoDto(produto));
+    }
 }
