@@ -25,7 +25,7 @@ public class ProdutoForm {
     private Double valor;
 
     @NotNull @Positive
-    private Integer quantidadeDisponivel;
+    private Integer estoque;
 
     @NotBlank
     @Length(max = 1000)
@@ -39,12 +39,12 @@ public class ProdutoForm {
     private List<CaracteristicaForm> caracteristicas;
 
     public ProdutoForm(String nome, Double valor,
-                       Integer quantidadeDisponivel,
+                       Integer estoque,
                        String descricao, Long categoriaId,
                        List<CaracteristicaForm> caracteristicas) {
         this.nome = nome;
         this.valor = valor;
-        this.quantidadeDisponivel = quantidadeDisponivel;
+        this.estoque = estoque;
         this.descricao = descricao;
         this.categoriaId = categoriaId;
         this.caracteristicas = caracteristicas;
@@ -60,7 +60,7 @@ public class ProdutoForm {
             caracteristicaEntity.add(caracteristica.toModel());
         }
         return new Produto(this.nome, this.valor,
-                this.quantidadeDisponivel,
+                this.estoque,
                 this.descricao, categoria.get(),
                 caracteristicaEntity, usuario);
     }
@@ -73,8 +73,8 @@ public class ProdutoForm {
         return valor;
     }
 
-    public Integer getQuantidadeDisponivel() {
-        return quantidadeDisponivel;
+    public Integer getEstoque() {
+        return estoque;
     }
 
     public String getDescricao() {

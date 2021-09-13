@@ -143,5 +143,31 @@ public class Produto {
     public void setPerguntaProduto(Pergunta opiniao) {
         this.perguntas.add(opiniao);
     }
+
+    public void abaterEstoque(Integer quantidade) {
+        if (this.estoque >= quantidade) {
+            this.estoque -= quantidade;
+        }
+        else { throw new IllegalArgumentException(
+                    "Não temos dispoível esta quantidade desse produto em estoque."); }
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", valor=" + valor +
+                ", estoque=" + estoque +
+                ", descricao='" + descricao + '\'' +
+                ", dataCriacao=" + dataCriacao +
+                ", categoria=" + categoria +
+                ", usuario=" + usuario +
+                ", caracteristicas=" + caracteristicas +
+                ", imagens=" + imagens +
+                ", opinioes=" + opinioes +
+                ", perguntas=" + perguntas +
+                '}';
+    }
 }
 

@@ -5,7 +5,7 @@ import br.com.zupacademy.vinicius.mercadolivre.produto.imagem_produto.Imagem;
 import br.com.zupacademy.vinicius.mercadolivre.produto.imagem_produto.ImagemForm;
 import br.com.zupacademy.vinicius.mercadolivre.produto.opiniao_usuario_produto.Opiniao;
 import br.com.zupacademy.vinicius.mercadolivre.produto.opiniao_usuario_produto.OpiniaoForm;
-import br.com.zupacademy.vinicius.mercadolivre.produto.pergunta_usuario_produto.EmailSender;
+import br.com.zupacademy.vinicius.mercadolivre.commons.util.EmailSender;
 import br.com.zupacademy.vinicius.mercadolivre.produto.pergunta_usuario_produto.Pergunta;
 import br.com.zupacademy.vinicius.mercadolivre.produto.pergunta_usuario_produto.PerguntaForm;
 import br.com.zupacademy.vinicius.mercadolivre.usuario.Usuario;
