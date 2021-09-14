@@ -30,7 +30,7 @@ public class CompraController {
         Produto produto = compra.getProduto();
         produto.abaterEstoque(compra.getQuantidade());
         repository.save(compra);
-        EmailSender.enviarEmailIndicacaoCompra(compra.getProduto().getUsuario(), usuario, compra);
+        EmailSender.sendMailIndicacaoDeCompra(compra.getProduto().getUsuario(), usuario, compra);
         String urlRetorno = "";
         return construirUrlRetorno(uriCompBuilder, compra);
     }
