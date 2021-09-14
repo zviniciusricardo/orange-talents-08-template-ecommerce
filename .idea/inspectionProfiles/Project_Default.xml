@@ -1,6 +1,19 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <inspection_tool class="AndroidLintAppLinksAutoVerifyError" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintAppLinksAutoVerifyWarning" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintAssert" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintImplicitSamInstance" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintMangledCRLF" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintMinSdkTooLow" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintNewerVersionAvailable" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintPermissionImpliesUnsupportedChromeOsHardware" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintRegistered" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintStopShip" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintUnsupportedChromeOsHardware" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintValidActionsXml" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintWrongThreadInterprocedural" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="DuplicateBranchesInSwitch" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="FieldCanBeLocal" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="EXCLUDE_ANNOS">
@@ -13,6 +26,7 @@
       <option name="IGNORE_FIELDS_USED_IN_MULTIPLE_METHODS" value="true" />
     </inspection_tool>
     <inspection_tool class="FieldMayBeFinal" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PermissionUsageInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
       <option name="processCode" value="true" />
       <option name="processLiterals" value="true" />
