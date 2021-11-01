@@ -1,6 +1,8 @@
 # Mercado Livre 
 <b> Orange Talents, turma 8 </b>
 
-
-
-retornado à branch anterior - problemas com maven e intellij
+Spring IOC
+Spring Rest
+tratamento de exceções 
+tratamento de erros
+JPA Repository
